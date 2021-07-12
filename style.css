@@ -99,7 +99,7 @@ body {
 }
 .lineThrough{
     text-decoration: line-through;
-    color : #ccc;
+    color :blue;
 }
 .item i.de{
     position: absolute;
