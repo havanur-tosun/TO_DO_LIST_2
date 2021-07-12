@@ -18,7 +18,6 @@ body {
     width: 380px;
     height: 270px;
     background-image: url(./img/images1.jpg);
-    /* background-size: 100% 200%; */
     background-repeat: no-repeat;
     border-radius: 15px 15px 0 0;
     position: relative;
@@ -36,7 +35,8 @@ body {
 }
 .clear i:hover{
     cursor: pointer;
-    text-shadow: 1px 3px 5px #000;
+    text-shadow: 1px 3px 5px blue;
+
 }
 #date{
     position: absolute;
@@ -85,11 +85,8 @@ body {
 }
 .item i.co:hover{
     cursor: pointer;
+    color: chartreuse;
 }
-
-/* .fa-check-circle{
-    color:#6eb200;
-} */
 
 .item p.text{
     position: absolute;
@@ -98,7 +95,6 @@ body {
     font-size: 20px;
     left:50px;
     top:5px;
-    /* background-color: #FFF; */
     max-width:285px;
 }
 .lineThrough{
@@ -112,6 +108,31 @@ body {
     top:10px;
 }
 .item i.de:hover{
-    color:#af0000;
+    color: red;
     cursor: pointer;
+}
+
+.add-item{
+    position: relative;
+    width: 360px;
+    height:40px;
+    background-color: rgba(0, 25, 0, 0.3);
+    padding: 10px;
+    border-top: 1px solid rgba(0,0,0,0.8);
+}
+.add-item i{
+    position: absolute;
+    font-size: 35px;
+    color: rgb(65, 98, 246);
+}
+
+.add-item input{
+    position: absolute;
+    left: 55px;
+    height: 35px;
+    width: 310px;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    padding-left:10px;
 }
