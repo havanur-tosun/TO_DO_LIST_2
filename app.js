@@ -3,8 +3,8 @@ const dateElement = document.getElementById("date");
 const list = document.getElementById("list");
 const input = document.getElementById("input");
 
-const CHECK = "far fa-check-circle";
-const UNCHECK = "far fa-circle";
+const CHECK = "fa-check-circle";
+const UNCHECK = "fa-circle";
 const LINE_THROUGH = "lineThrough";
 
 let LIST = [], 
@@ -17,8 +17,8 @@ dateElement.innerHTML = today.toLocaleDateString("en-US", options);
 function addToDo(toDo, id, done, trash) {
   if(trash){ return; }
 
-  const DONE = done ? CHECK : UNCHECK;
-  const LINE = done ? LINE_THROUGH : "";
+  let DONE = done ? CHECK : UNCHECK;
+  let LINE = done ? LINE_THROUGH : "";
   const item = `<li class="item">
                   <i class="far ${DONE} co" job="complete" id="${id}"></i>
                   <p class="text ${LINE}">${toDo}</p>
@@ -53,9 +53,14 @@ document.addEventListener("keyup", function (event){
 
 
 function completeToDo(element) {
-  element.classList.toggle(CHECK);
-  element.classList.toggle(UNCHECK);
-  element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
+
+  // console.log("1111");
+  // console.log("completeToDo functıon: element: ", element);
+  
+  element.classList.replace(UNCHECK, CHECK);
+  // element.classList.add(UNCHECK);
+  element.parentNode.querySelector(".text").classList.add(LINE_THROUGH);
+  
   LIST[element.id].done = LIST[element.id].done ? false: true;
 }
 
@@ -66,7 +71,13 @@ function removeToDo(element) {
 
 list.addEventListener("click", function(event){
   let element = event.target;  //return the clicked element inside list
+   console.log("element: ", element)
+  
   const elementJob = event.target.attributes.job.value; // delete or complete
+  // console.log("elementJob: ", elementJob)
+
+  // const elementJob = "complete";
+
   if(elementJob == "complete"){
     completeToDo(element);
   }
@@ -75,6 +86,27 @@ list.addEventListener("click", function(event){
   }
 });
 
+
+document.getElementById("plus").addEventListener("click", add1);
+
+function add1() {
+  // console.log("artı test...");
+  const toDo = input.value;
+  if(toDo){
+    addToDo(toDo, id, false, false);
+
+    LIST.push({
+      name: toDo,
+      id: id,
+      done: false,
+      trash: false
+    });
+    id++;
+  }
+  input.value = "";
+}
+
 clear.addEventListener("click", function(){
   location.reload();
 });
+
