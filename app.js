@@ -58,7 +58,7 @@ function completeToDo(element) {
   // console.log("completeToDo functıon: element: ", element);
   
   element.classList.replace(UNCHECK, CHECK);
-  // element.classList.add(UNCHECK);
+  // element.classList.remove(CHECK);
   element.parentNode.querySelector(".text").classList.add(LINE_THROUGH);
   
   LIST[element.id].done = LIST[element.id].done ? false: true;

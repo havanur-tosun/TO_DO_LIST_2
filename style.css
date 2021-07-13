@@ -53,7 +53,7 @@ body {
     height: 350px;
     max-height:350px;
     background-color: rgba(0, 25, 0, 0.3);
-    /* overflow: auto; */
+    overflow: auto;
 }
 
 /* .content::-webkit-scrollbar { 
